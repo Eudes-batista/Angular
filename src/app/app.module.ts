@@ -7,7 +7,7 @@ import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { ProdutoComponent } from './lancamento/produto.component';
+import { ProdutoComponent } from './lancamento/lancamento.component';
 import { ListaProdutoComponent } from './lista-produto/lista-produto.component';
 import { MenuComponent } from './menu/menu.component';
 import { PrincipalComponent } from './principal/principal.component';
