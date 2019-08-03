@@ -1,0 +1,37 @@
+<app-produto (adicionouProduto)="adicionar($event)"></app-produto>
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <h3>Lista de Produtos</h3>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Referencia</th>
+                        <th>Descrição</th>
+                        <th>Preço</th>
+                        <th>Quantidade</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let produtoCorrente of produtos">
+                        <td>{{ produtoCorrente.referencia }}</td>
+                        <td>{{ produtoCorrente.nome }}</td>
+                        <td>{{ produtoCorrente.preco }}</td>
+                        <td>{{ produtoCorrente.quantidade }}</td>
+                        <td>
+                            <button type="button" class="btn btn-danger" (click)="excluirItem(produtoCorrente)">Excluir</button>
+                        </td>
+                    </tr>
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <th colspan="2"> Total: </th>
+                        <th colspan="1" class="text-left">{{ totalValorItens }}</th>
+                        <th colspan="1" class="text-left">{{ totalQuantidade }}</th>
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,25 @@
+<br />
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card" *ngFor="let currentProduct of produtos">
+                <div class="card-body">
+                    <h3 class="card-title">{{ currentProduct.referencia }} - {{ currentProduct.nome }}</h3>
+                    R$ {{ currentProduct.preco }}
+                    <div>
+                        <button class="btn btn-danger" type="button"
+                            (click)="removerQuantidade(currentProduct)">-</button>
+                        <input type="number" class="form-control" placeholder="Quantidade" autofocus
+                            [(ngModel)]="currentProduct.quantidade" min="1" />
+                        <button class="btn btn-info" type="button"
+                            (click)="adicionarQuantidade(currentProduct)">+</button>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <button type="button" class="btn btn-success"
+                        (click)="confirmaProduto(currentProduct)">Adicionar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
