@@ -1,12 +1,13 @@
-import { Produto } from '../cadastros/produtos/produto.class';
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+
+import { Produto } from 'src/app/cadastros/produtos/produto.class';
 
 @Component({
-  selector: 'app-lista-produto',
-  templateUrl: './lista-produto.component.html',
-  styleUrls: ['./lista-produto.component.css']
+  selector: 'app-lista-lancamento',
+  templateUrl: './lista-lancamento.component.html',
+  styleUrls: ['./lista-lancamento.component.css']
 })
-export class ListaProdutoComponent implements OnInit {
+export class ListaLancamentoComponent implements OnInit {
 
   produtos: Produto[] = new Array<Produto>();
   totalQuantidade = 0.0;

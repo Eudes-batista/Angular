@@ -1,14 +1,14 @@
-import { ProdutoService } from '../cadastros/produtos/produto.service';
+import { ProdutoService } from '../../cadastros/produtos/produto.service';
 import { Component, OnInit, EventEmitter, Output } from '@angular/core';
-import { Produto } from '../cadastros/produtos/produto.class';
+import { Produto } from '../../cadastros/produtos/produto.class';
 
 @Component({
-  selector: 'app-produto',
-  templateUrl: './produto.component.html',
-  styleUrls: ['./produto.component.css'],
+  selector: 'app-lancamento',
+  templateUrl: './lancamento.component.html',
+  styleUrls: ['./lancamento.component.css'],
   preserveWhitespaces: true
 })
-export class ProdutoComponent implements OnInit {
+export class LancamentoComponent implements OnInit {
 
   produtos: Produto[];
 
