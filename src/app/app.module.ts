@@ -1,14 +1,15 @@
-import { LancamentoModule } from './lancamento/lancamento.module';
-import { AppBootstrapModule } from './modulo-bootstrap/app-bootstrap.module';
+import { LoginModule } from './login/login.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
-import { CadastroModule } from './cadastros/cadastro.module';
+import { AppBootstrapModule } from './modulo-bootstrap/app-bootstrap.module';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { MenuComponent } from './menu/menu.component';
 import { PrincipalComponent } from './principal/principal.component';
+import { GrupoComponent } from './cadastros/grupo/grupo.component';
+
 
 @NgModule({
   declarations: [
@@ -19,10 +20,9 @@ import { PrincipalComponent } from './principal/principal.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    CadastroModule,
     FormsModule,
-    LancamentoModule,
-    AppBootstrapModule
+    AppBootstrapModule,
+    LoginModule
   ],
   providers: [],
   bootstrap: [AppComponent]

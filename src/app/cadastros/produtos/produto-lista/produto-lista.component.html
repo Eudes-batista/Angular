@@ -19,8 +19,9 @@
                         <td>{{ produtoCorrente.preco }}</td>
                         <td>{{ produtoCorrente.quantidade }}</td>
                         <td>
-                            <button type="button" class="btn btn-danger"
-                                (click)="abrirModal(template,produtoCorrente)">Excluir</button>
+                            <a [routerLink]="[ '/produto',produtoCorrente.referencia,'editar']">Alterar</a>
+
+                            <button type="button" class="btn btn-danger" (click)="abrirModal(template,produtoCorrente)">Excluir</button>
                         </td>
                     </tr>
                 </tbody>

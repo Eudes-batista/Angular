@@ -1,0 +1,10 @@
+form {
+    margin-top: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    box-shadow: 1px 1px 1px 1px #ccc;
+}
+
+.form-control {
+    margin-bottom: 5px;
+}

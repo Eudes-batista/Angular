@@ -1,0 +1,12 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <h3>Login Sistema</h3>
+            <form>
+                <input type="text" name="usuario" id="usuario" [(ngModel)]="usuario.nome" placeholder="Nome do usuario" class="form-control">
+                <input type="password" name="senha" id="senha" [(ngModel)]="usuario.senha" placeholder="Senha do usuario" class="form-control">
+                <button type="button" class="btn btn-info btn-block" (click)="fazerLogin()"> Logar </button>
+            </form>
+        </div>
+    </div>
+</div>

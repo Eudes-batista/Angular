@@ -1,1 +1,28 @@
-<p>produto-cadastro works!</p>
+<div class="card">
+    <form #frm="ngForm" (ngSubmit)="salvar(frm.value)">
+        <div class="card-body">
+            <h3 class="card-title">Cadastro de Produto</h3>
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-12">
+                        <label for="referencia">Referencia </label>
+                        <input class="form-control" type="text" name="referencia" id="referencia" ngModel placeholder="Referencia" maxlength="20" required autofocus />
+                        <alert type="danger" dismissible="true" *ngIf="camposInvalidos">Campo Obrigatorio!</alert>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <label for="nome">Nome </label>
+                        <input class="form-control" type="text" name="nome" id="nome" ngModel placeholder="Nome" maxlength="120" required />
+                        <alert type="danger" dismissible="true" *ngIf="camposInvalidos">Campo Obrigatorio!</alert>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card-footer">
+            <button type="submit" class="btn btn-success">
+                Salvar
+            </button>
+        </div>
+    </form>
+</div>

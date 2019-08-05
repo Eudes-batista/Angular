@@ -7,7 +7,8 @@ import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 @Component({
   selector: 'app-produto-lista',
   templateUrl: './produto-lista.component.html',
-  styleUrls: ['./produto-lista.component.css']
+  styleUrls: ['./produto-lista.component.css'],
+  preserveWhitespaces: true
 })
 export class ProdutoListaComponent implements OnInit {
 

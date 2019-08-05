@@ -1,12 +1,11 @@
 import { Injectable } from '@angular/core';
+
 import { Produto } from './produto.class';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class ProdutoService {
 
-  private produtos: Produto[] =  [
+  private produtos: Produto[] = [
     { referencia: '1', nome: 'Galeto', preco: 38.00, quantidade: 1 },
     { referencia: '2', nome: 'Pizza Calabreza', preco: 25.00, quantidade: 1 },
     { referencia: '3', nome: 'Pizza Frango', preco: 22.50, quantidade: 1 },
@@ -14,6 +13,10 @@ export class ProdutoService {
 
   public getProdutos(): Produto[] {
     return this.produtos;
+  }
+
+  public buscarProdutoPorReferencia(referencia: string): Produto {
+    return this.produtos.filter(produto => produto.referencia === referencia)[0];
   }
 
   public salvarProduto(produto: Produto): void {
