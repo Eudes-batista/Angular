@@ -6,23 +6,39 @@
                 <div class="row">
                     <div class="col-md-12">
                         <label for="referencia">Referencia </label>
-                        <input class="form-control" type="text" name="referencia" id="referencia" ngModel placeholder="Referencia" maxlength="20" required autofocus />
-                        <alert type="danger" dismissible="true" *ngIf="camposInvalidos">Campo Obrigatorio!</alert>
+                        <input class="form-control" type="text" #referencia="ngModel" name="referencia" id="referencia" [(ngModel)]="produto.referencia" placeholder="Referencia" maxlength="20" required autofocus focus />
+                        <span class="descricao">referencia do produto apenas 20 caracteres, campo obrigatorio!</span>
+                        <app-alerta-campo-erro [campo]="referencia"></app-alerta-campo-erro>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-md-12">
                         <label for="nome">Nome </label>
-                        <input class="form-control" type="text" name="nome" id="nome" ngModel placeholder="Nome" maxlength="120" required />
-                        <alert type="danger" dismissible="true" *ngIf="camposInvalidos">Campo Obrigatorio!</alert>
+                        <input class="form-control" type="text" #nome="ngModel" name="nome" id="nome" [(ngModel)]="produto.nome" placeholder="Nome" maxlength="120" required />
+                        <app-alerta-campo-erro [campo]="nome"></app-alerta-campo-erro>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <label for="preco">Preço de Venda</label>
+                        <input class="form-control" type="tel" currencyMask [options]="{ prefix: '', thousands: '.', decimal: ',', align: 'left' }" #preco="ngModel" name="preco" id="preco" [(ngModel)]="produto.preco" placeholder="Preço" min="1" required />
+                        <app-alerta-campo-erro [campo]="preco"></app-alerta-campo-erro>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <label for="quantidade">Quantidade minima estoque</label>
+                        <input class="form-control" type="number" #quantidade="ngModel" name="quantidade" id="quantidade" [(ngModel)]="produto.quantidade" placeholder="Quantidade" min="1" minlength="1" required />
+                        <app-alerta-campo-erro [campo]="quantidade"></app-alerta-campo-erro>
                     </div>
                 </div>
             </div>
         </div>
         <div class="card-footer">
-            <button type="submit" class="btn btn-success">
+            <button type="submit" class="btn btn-success" [disabled]="frm.invalid">
                 Salvar
             </button>
         </div>
     </form>
 </div>
+<app-form-debug [formulario]="frm"></app-form-debug>

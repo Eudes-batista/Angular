@@ -16,7 +16,7 @@
                     <tr *ngFor="let produtoCorrente of produtos">
                         <td>{{ produtoCorrente.referencia }}</td>
                         <td>{{ produtoCorrente.nome }}</td>
-                        <td>{{ produtoCorrente.preco }}</td>
+                        <td>{{ produtoCorrente.preco.toLocaleString('pt-br', {style: 'currency', currency: 'BRL'}) }}</td>
                         <td>{{ produtoCorrente.quantidade }}</td>
                         <td>
                             <a [routerLink]="[ '/produto',produtoCorrente.referencia,'editar']">Alterar</a>

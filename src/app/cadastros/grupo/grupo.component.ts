@@ -10,6 +10,7 @@ import { Component, OnInit } from '@angular/core';
 export class GrupoComponent implements OnInit {
 
   grupos: Grupo[];
+  podeVerDetalhe: boolean = true;
 
   constructor(private grupoService: GrupoService) { }
 

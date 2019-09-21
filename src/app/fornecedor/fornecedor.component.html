@@ -1,0 +1,6 @@
+<form #frm="ngForm">
+    <input type="text" name="fornecedor" id="fornecedor" placeholder="fornecedor" [(ngModel)]="fornecedor">
+
+    <app-contato pessoa="fornecedor"></app-contato>
+    <button type="submit">salvar</button>
+</form>

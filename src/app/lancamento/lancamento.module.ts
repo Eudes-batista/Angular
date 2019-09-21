@@ -5,7 +5,6 @@ import { CommonModule } from '@angular/common';
 import { LancamentoRoutingModule } from './lancamento.routing.module';
 import { ListaLancamentoComponent } from './lista-lancamento/lista-lancamento.component';
 import { LancamentoComponent } from './inclusao-lancamento/lancamento.component';
-import { ProdutoService } from './../cadastros/produtos/produto.service';
 
 
 @NgModule({
@@ -19,6 +18,6 @@ import { ProdutoService } from './../cadastros/produtos/produto.service';
         LancamentoRoutingModule
     ],
     exports: [],
-    providers: [ProdutoService]
+    providers: []
 })
 export class LancamentoModule { }

@@ -2,7 +2,9 @@ import { Injectable } from '@angular/core';
 
 import { Produto } from './produto.class';
 
-@Injectable()
+@Injectable({
+  providedIn: 'root'
+})
 export class ProdutoService {
 
   private produtos: Produto[] = [
@@ -20,6 +22,12 @@ export class ProdutoService {
   }
 
   public salvarProduto(produto: Produto): void {
+    const produtoEncontrado: Produto = this.buscarProdutoPorReferencia(produto.referencia);
+    if (!produtoEncontrado) {
+        this.produtos.push(produto);
+        return;
+    }
+    this.excluirProduto(produtoEncontrado);
     this.produtos.push(produto);
   }
 

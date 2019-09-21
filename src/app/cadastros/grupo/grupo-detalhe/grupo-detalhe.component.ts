@@ -1,3 +1,4 @@
+import { GuardeGeneric } from './../../../guarda-rota/guard.generic';
 import { Subscription } from 'rxjs';
 import { ActivatedRoute } from '@angular/router';
 import { Grupo } from './../grupo.class';
@@ -9,7 +10,7 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
   templateUrl: './grupo-detalhe.component.html',
   styleUrls: ['./grupo-detalhe.component.css']
 })
-export class GrupoDetalheComponent implements OnInit, OnDestroy {
+export class GrupoDetalheComponent implements OnInit, OnDestroy, GuardeGeneric {
 
   grupo: Grupo;
   private inscricao: Subscription;
@@ -18,16 +19,10 @@ export class GrupoDetalheComponent implements OnInit, OnDestroy {
   constructor(private grupoService: GrupoService, private route: ActivatedRoute) { }
 
   private buscarGrupo(): void {
-    this.inscricao = this.route.params.subscribe(param => {
-      this.id = param.id;
-      if (this.validarId()) {
-        this.grupo = this.grupoService.buscarGrupo(this.id);
-      }
-    });
-  }
-
-  private validarId(): boolean {
-    return !!this.id;
+    this.inscricao = this.route.data
+      .subscribe((param: { grupo: Grupo }) => {
+        this.grupo = param.grupo;
+      });
   }
 
   ngOnInit(): void {
@@ -36,6 +31,10 @@ export class GrupoDetalheComponent implements OnInit, OnDestroy {
 
   ngOnDestroy(): void {
     this.inscricao.unsubscribe();
+  }
+
+  isPodeSair(): boolean {
+    return confirm('Deseja mesmo sair da tela');
   }
 
 }

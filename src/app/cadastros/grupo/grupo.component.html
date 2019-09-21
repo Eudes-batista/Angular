@@ -15,7 +15,7 @@
                         <th>{{ grupoCorrente.codigo }}</th>
                         <th>{{ grupoCorrente.nome }}</th>
                         <th>
-                            <a [routerLink]="[grupoCorrente.codigo, 'detalhe']"> Detalhe</a>
+                            <a [routerLink]="[grupoCorrente.codigo, 'detalhe']" class="{{ podeVerDetalhe ?  '' : 'isDisabled' }}"> Detalhe</a>
                         </th>
                     </tr>
                 </tbody>

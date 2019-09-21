@@ -30,6 +30,7 @@ export class LancamentoComponent implements OnInit {
   }
 
   ngOnInit() {
+    console.log(`PASSOU AQUI: ${JSON.stringify(this.produtoService.getProdutos())}`);
     this.produtos = this.produtoService.getProdutos();
   }
 

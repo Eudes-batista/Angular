@@ -1,0 +1,35 @@
+<div class="card">
+    <div class="card-header">
+        <div class="col-md-10 float-left">
+            <h3>Lista Pais</h3>
+        </div>
+        <div class="col-md-2 float-right">
+            <a [routerLink]="[ '/pais/novo']" class="btn btn-outline-primary">Novo Registro</a>
+        </div>
+    </div>
+    <div class="card-body">
+        <label for="pesquisa">Pesquisa</label>
+        <input type="text" name="pesquisa" id="pesquisa" [(ngModel)]="pesquisa" placeholder="Pesquisa por nome" class="form-control" (keyup.enter)="pesquisarPorNome()" />
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Codigo</th>
+                    <th>Nome</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let paisAtual of paises">
+                    <td>{{ paisAtual.codigo }}</td>
+                    <td>{{ paisAtual.nome }}</td>
+                    <td>
+                        <a [routerLink]="[ '/pais', paisAtual.codigo, 'editar' ]">Alterar</a>
+
+                        <a class="text-danger">Excluir</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <pagination [totalItems]="totalDePaginas" (pageChanged)="setPagina($event)" previousText="&lsaquo;" nextText="&rsaquo;"></pagination>
+    </div>
+</div>

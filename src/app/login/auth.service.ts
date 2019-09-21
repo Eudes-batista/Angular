@@ -14,18 +14,18 @@ export class AuthService {
 
   public fazerLogin(usuario: Usuario): void {
     this.usuarioAutenticado = usuario.nome === 'eudes' && usuario.senha === '123';
-    this.eventEmitter.emit(this.usuarioAutenticado);
-    if (this.verificarUsuarioLogado()) {
+    if (this.usuarioAutenticado) {
+      console.log(this.getUsuarioAutenticado());
+      this.eventEmitter.emit(true);
+      localStorage.setItem('usuario', 'usuario');
       this.router.navigate(['/principal']);
+      return;
     }
-  }
-
-  private verificarUsuarioLogado(): boolean {
-    return this.usuarioAutenticado;
+    this.eventEmitter.emit(false);
   }
 
   public getUsuarioAutenticado(): boolean {
-    return this.usuarioAutenticado;
+    return !!localStorage.getItem('usuario');
   }
 
   public getEventEmitter(): EventEmitter<boolean> {

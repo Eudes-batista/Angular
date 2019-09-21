@@ -1,7 +1,9 @@
 import { Grupo } from './grupo.class';
 import { Injectable } from '@angular/core';
 
-@Injectable()
+@Injectable({
+  providedIn: 'root'
+})
 export class GrupoService {
 
   private grupos: Grupo[];

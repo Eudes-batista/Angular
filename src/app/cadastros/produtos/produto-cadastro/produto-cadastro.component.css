@@ -1,3 +1,9 @@
 .row {
     margin-bottom: 5px;
 }
+
+.descricao {
+    color: #bbb;
+    font-size: 10pt;
+    border-bottom: 5px solid #bbb;
+}

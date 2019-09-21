@@ -1,3 +1,4 @@
+import { GrupoGuardResolve } from './../../guarda-rota/grupo.guard.resolve';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
@@ -6,8 +7,8 @@ import { AppBootstrapModule } from './../../modulo-bootstrap/app-bootstrap.modul
 
 import { GrupoRoutingModule } from './grupo.routing.module';
 import { GrupoDetalheComponent } from './grupo-detalhe/grupo-detalhe.component';
-import { GrupoService } from './grupo.service';
 import { GrupoComponent } from './grupo.component';
+
 
 @NgModule({
     declarations: [
@@ -21,6 +22,6 @@ import { GrupoComponent } from './grupo.component';
         GrupoRoutingModule
     ],
     exports: [],
-    providers: [GrupoService],
+    providers: [],
 })
 export class GrupoModule { }

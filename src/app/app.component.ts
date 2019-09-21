@@ -19,7 +19,13 @@ export class AppComponent implements OnInit, OnDestroy {
   ngOnInit() {
     this.inscricao = this.authService
       .getEventEmitter()
-      .subscribe(auth => this.mostrarMenu = auth);
+      .subscribe(auth => {
+        this.mostrarMenu = auth;
+      });
+    const usuario = localStorage.getItem('usuario');
+    if (!this.mostrarMenu && usuario) {
+      this.mostrarMenu = true;
+    }
   }
 
   ngOnDestroy(): void {

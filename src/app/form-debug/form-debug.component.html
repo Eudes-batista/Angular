@@ -1,0 +1,14 @@
+<div style="margin-top: 20px" *ngIf="formulario">
+    <div>
+        Detalhes do formulario
+    </div>
+    <div class="jumbotron">
+        Fomulario válido: {{ formulario.valid }}
+    </div>
+    <div class="jumbotron">
+        Fomulario submetido: {{ formulario.submitted }}
+    </div>
+    <div class="jumbotron">
+        Informações do Formulario: {{ formulario.value | json }}
+    </div>
+</div>

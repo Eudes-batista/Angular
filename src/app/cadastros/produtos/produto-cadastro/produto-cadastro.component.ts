@@ -1,5 +1,5 @@
 import { Component, OnInit, OnDestroy, ViewChild } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { NgForm } from '@angular/forms';
 
@@ -20,18 +20,27 @@ export class ProdutoCadastroComponent implements OnInit, OnDestroy {
 
   @ViewChild('frm', { static: false }) formulario: NgForm;
 
-  constructor(private produtoService: ProdutoService, private activedRouter: ActivatedRoute) { }
+  constructor(
+    private produtoService: ProdutoService,
+    private activedRouter: ActivatedRoute,
+    private router: Router) { }
 
   buscarProduto() {
-    this.subsCription = this.activedRouter.params.subscribe(param => this.id = param.id);
-    if (!this.id) { return; }
-    this.produto = this.produtoService.buscarProdutoPorReferencia(this.id);
+    this.subsCription = this.activedRouter.data
+      .subscribe((param: { produto: Produto }) => {
+        this.produto = param.produto;
+      });
   }
 
   public salvar(produto): void {
     this.camposInvalidos = this.validarCampos();
     if (this.camposInvalidos) { return; }
-    console.log(produto);
+    this.produtoService.salvarProduto(produto);
+    this.router.navigate(['/produto']);
+  }
+
+  passarFocoNome() {
+    document.getElementById('nome').focus();
   }
 
   public validarCampos(): boolean {
@@ -40,6 +49,9 @@ export class ProdutoCadastroComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.buscarProduto();
+    if (!this.produto) {
+      this.produto = new Produto();
+    }
   }
 
   ngOnDestroy() {

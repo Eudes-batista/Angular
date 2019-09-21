@@ -1,0 +1,25 @@
+<div class="card">
+    <div class="card-header">Cadastro de Pais</div>
+    <form #frm="ngForm" (ngSubmit)="salvar(frm.value)">
+        <div class="card-body">
+            <div class="col-md-12">
+                <label for="codigo">Codigo: </label>
+                <input type="number" class="form-control" name="codigo" id="codigo" placeholder="Codigo" #codigo="ngModel" [(ngModel)]="pais.codigo" required autofocus max="4" maxlength="4">
+                <app-alerta-campo-erro [campo]="codigo"></app-alerta-campo-erro>
+                <div *ngIf="valorInformadoMaiorQueQuatroDigito() && codigo.dirty" class="alert alert-info">
+                    Campo só pode ter apenas <span class="link-info">4</span> caracteres
+                </div>
+            </div>
+            <div class="col-md-12">
+                <label for="codigo">Nome: </label>
+                <input type="text" class="form-control" name="nome" id="nome" placeholder="Nome" #nome="ngModel" [(ngModel)]="pais.nome" required maxlength="50">
+                <app-alerta-campo-erro [campo]="nome"></app-alerta-campo-erro>
+            </div>
+        </div>
+        <div class="card-footer">
+            <button type="submit" class="btn btn-success" [disabled]="frm.invalid || valorInformadoMaiorQueQuatroDigito()">Salvar</button>
+
+            <a [routerLink]="['/pais']" class="text-info">Voltar</a>
+        </div>
+    </form>
+</div>

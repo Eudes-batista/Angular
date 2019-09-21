@@ -12,4 +12,9 @@ export class MenuComponent implements OnInit {
   ngOnInit() {
   }
 
+  fazerLogout() {
+    localStorage.removeItem('usuario');
+    window.location.href = 'http://localhost:4200';
+  }
+
 }
